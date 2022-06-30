@@ -39,7 +39,7 @@ if ( ! class_exists( 'Financerecruitment_Millnet\\Plugin' ) ) :
 		/**
 		 * Version of plugin
 		 */
-		const VERSION = '3.7.0';
+		const VERSION = '1.0.0';
 
 		/**
 		 * @var string
