@@ -52,6 +52,13 @@ if ( ! class_exists( 'Financerecruitment_Millnet\\Plugin' ) ) :
 		private $plugin_label;
 
 		/**
+		 * millnet_worker class
+		 *
+		 * @var Millnet_Worker
+		 */
+		public $millnet_worker;
+
+		/**
 		 * Translation class
 		 *
 		 * @var I18n
@@ -113,6 +120,7 @@ if ( ! class_exists( 'Financerecruitment_Millnet\\Plugin' ) ) :
 		public function init_modules() {
 			$this->i18n = I18n::get_instance();
 			$this->scripts = Scripts::get_instance();
+			$this->millnet_worker = Millnet_Worker::get_instance();
 		}
 
 		/**
@@ -123,6 +131,7 @@ if ( ! class_exists( 'Financerecruitment_Millnet\\Plugin' ) ) :
 		public function run() {
 			$this->i18n->init();
 			$this->scripts->init();
+			$this->millnet_worker->init();
 		}
 	}
 
