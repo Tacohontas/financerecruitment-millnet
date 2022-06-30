@@ -2,6 +2,8 @@
 
 namespace Financerecruitment_Millnet;
 
+use GFAddOn;
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
@@ -50,6 +52,13 @@ if ( ! class_exists( 'Financerecruitment_Millnet\\Plugin' ) ) :
 		 * @var string
 		 */
 		private $plugin_label;
+
+		/**
+		 * gf_millnet_addon class
+		 *
+		 * @var Gf_Millnet_Addon
+		 */
+		public $gf_millnet_addon;
 
 		/**
 		 * millnet_worker class
@@ -118,9 +127,23 @@ if ( ! class_exists( 'Financerecruitment_Millnet\\Plugin' ) ) :
 		 * @return void
 		 */
 		public function init_modules() {
+			add_action( 'gform_loaded', [ $this, 'load_gform_addon' ], 10, 1 );
 			$this->i18n = I18n::get_instance();
 			$this->scripts = Scripts::get_instance();
 			$this->millnet_worker = Millnet_Worker::get_instance();
+		}
+
+		/**
+		 * Load GF feed addon
+		 *
+		 * @return void
+		 */
+		public function load_gform_addon() {
+			if ( ! method_exists( 'GFForms', 'include_addon_framework' ) ) {
+				return;
+			}
+
+			GFAddon::register( Gf_Applications_Addon::class );
 		}
 
 		/**
