@@ -1,0 +1,14 @@
+node_modules
+.idea
+github-token
+.DS_Store
+.phpunit.result.cache
+
+# Vendor folders
+vendor
+
+# Compiled CSS and JS files
+assets/css/backend/*
+assets/css/frontend/*
+assets/js/backend/*
+assets/js/frontend/*

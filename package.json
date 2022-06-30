@@ -1,0 +1,49 @@
+{
+	"name": "financerecruitment-millnet",
+	"main": "index.js",
+	"scripts": {
+		"test": "npm run eslint && npm run stylelint",
+		"eslint": "./node_modules/.bin/eslint ./resources/ --ext .js",
+		"eslint-fix": "./node_modules/.bin/eslint --fix ./resources/ --ext .js",
+		"stylelint": "./node_modules/.bin/stylelint ./resources/ */*.scss",
+		"stylelint-fix": "./node_modules/.bin/stylelint --fix ./resources/ */*.scss",
+		"watch": "./node_modules/.bin/gulp watch",
+		"production": "cross-env NODE_ENV=production ./node_modules/.bin/gulp build",
+		"prod": "npm run production"
+	},
+	"author": "The Generation AB",
+	"devDependencies": {
+		"cross-env": "^7.0.3",
+		"dart-sass": "^1.25.0",
+		"eslint": "^8.5.0",
+		"eslint-config-google": "^0.14.0",
+		"eslint-config-prettier": "^8.3.0",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^8.0.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-eslint-new": "^1.1.1",
+		"gulp-if": "^3.0.0",
+		"gulp-notify": "^4.0.0",
+		"gulp-rename": "^2.0.0",
+		"gulp-sass": "^5.0.0",
+		"gulp-sourcemaps": "^3.0.0",
+		"gulp-terser": "^2.1.0",
+		"gulp-watch": "^5.0.1",
+		"prettier": "^2.5.1",
+		"stylelint": "^14.2.0",
+		"stylelint-config-prettier": "^9.0.3",
+		"stylelint-config-recess-order": "^3.0.0",
+		"stylelint-config-standard-scss": "^3.0.0",
+		"stylelint-declaration-block-no-ignored-properties": "^2.5.0",
+		"stylelint-order": "^5.0.0"
+	},
+	"engines": {
+		"node": ">=14.1.0"
+	},
+	"browserslist": [
+		"last 2 versions",
+		"not Explorer <= 11",
+		"not dead",
+		"> 5%"
+	]
+}

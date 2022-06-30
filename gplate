@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+
+php_sapi_name() !== 'cli' && exit; // Exit if accessed directly
+
+// Setup console
+define( 'GPLATE_CONSOLE', true );
+define( 'GPLATE_BASE_DIR', __DIR__ );
+
+$plugin_name = 'financerecruitment-millnet';
+
+require_once __DIR__ . '/console/Console.php';
+
+$console = new GPlate\Console();
+
+// Run the console
+$console->run( $plugin_name, $argv );

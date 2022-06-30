@@ -1,0 +1,218 @@
+.financerecruitment-millnet-input-admin-textarea {
+	width: 100%;
+}
+
+.financerecruitment-millnet-input-admin-input {
+	max-width: 450px;
+	width: 100%;
+}
+
+.financerecruitment-millnet-input-admin-select {
+	max-width: 450px;
+	width: 100%;
+}
+
+.financerecruitment-millnet-help-page-wrapper {
+	li {
+		list-style: initial;
+		margin-left: 29px;
+	}
+}
+
+#side-sortables .form-table.financerecruitment-millnet-metabox-table {
+	th {
+		display: block;
+		padding: 10px 0 5px;
+
+		& + td {
+			display: block;
+			padding: 0 0 10px;
+		}
+	}
+}
+
+.form-table.financerecruitment-millnet-metabox-table {
+	> tbody > tr {
+		border-top: 1px solid #eee;
+
+		&:first-child {
+			border: 0;
+		}
+	}
+
+	td {
+		padding-left: 0;
+
+		& > label {
+			font-weight: 600;
+			padding-bottom: 5px;
+			display: block;
+		}
+
+		&.financerecruitment-millnet-metabox-field {
+			padding-right: 0;
+
+			> label {
+				font-size: 1.25em;
+				display: block;
+				padding-bottom: 0.5em;
+			}
+		}
+		
+		.financerecruitment-millnet-tooltip {
+			display: inline-block;
+			position: relative; 
+
+			i {
+				&:hover {
+					cursor: help;
+				}
+
+				&:hover + .tooltip {
+					visibility: visible; 
+				}
+			}
+
+			.tooltip {
+				position: absolute;
+				visibility: hidden; 
+				background-color: #333;
+				padding: 10px;
+				min-width: 150px;
+				text-align: center;
+				left: 0;
+				top: 27px;	
+				transform: translate(-50%);
+
+				&:before {
+					position: absolute;
+					content: '';
+					width: 10px;
+					height: 10px;
+					background-color: #333;
+					top: -5px;
+					transform: rotate(45deg);
+				}
+
+				p {
+					font-size: 10px;
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	fieldset {
+		max-height: 200px;
+		overflow: auto;
+		border: 1px solid #eee;
+		padding: 10px;
+	}
+}
+
+.financerecruitment-millnet-input-admin-checkbox + .description {
+	display: inline-block;
+}
+
+.financerecruitment-millnet-input-admin-wp-editor {
+	width: 100%;
+}
+
+.financerecruitment-millnet-input-admin-repeatable {
+	margin-top: 0;
+
+	th {
+		padding: 0 0 5px;
+	}
+
+	td {
+		vertical-align: top;
+	}
+
+	tbody tr {
+		border-top: 1px solid #eee;
+
+		&:first-child {
+			border: 0;
+		}
+
+		&:first-child .financerecruitment-millnet-input-admin-repeatable-column {
+			padding-top: 0;
+		}
+
+		.financerecruitment-millnet-input-admin-repeatable-column {
+			+ td {
+				vertical-align: middle;
+			}
+			table {
+				margin-top: 0;
+
+				th {
+					padding-top: 20px;
+				}
+
+				tr:first-child th,
+				tr:first-child td {
+					padding-top: 0;
+				}
+			}
+		}
+
+		.financerecruitment-millnet-input-admin-repeatable-actions {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.financerecruitment-millnet-input-admin-repeatable-move-buttons {
+			button {
+				display: flex;
+				width: 100%;
+				align-items: center;
+			}
+		}
+	}
+}
+
+.financerecruitment-millnet-input-admin-media-wrapper {
+	td {
+		vertical-align: top;
+		padding: 0;
+	}
+	.financerecruitment-millnet-input-admin-media-preview {
+		display: none;
+		border: 2px dashed #ccc;
+		padding: 2px;
+		margin-left: 15px;
+		position: relative;
+
+		&.has-file {
+			display: inline-block;
+		}
+
+		img {
+			display: block;
+			height: 100px;
+			width: auto;
+			margin-bottom: 10px;
+		}
+
+		&.is-icon img {
+			margin: 10px auto;
+			width: 40px;
+			height: auto;
+		}
+
+		.financerecruitment-millnet-input-admin-media-file-name {
+			font-size: 14px;
+			padding: 0 10px 10px 10px;
+			display: inline-block;
+		}
+
+		.financerecruitment-millnet-input-admin-media-remove {
+			position: absolute;
+			top: 2px;
+			right: 2px;
+		}
+	}
+}
