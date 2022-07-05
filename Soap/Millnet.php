@@ -13,6 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 class Cision {
 	use Singleton;
+	
+	/**
+	 * WSDL
+	 */
+	const WSDL = 'https://financerecruitment.millnet.cloud/cgi/api_service.cgi?wsdl';
 
 	/**
 	 * Client object
@@ -35,7 +40,7 @@ class Cision {
 	 */
 	protected function __construct() {
 		self::$client = new SoapClient(
-			'https://financerecruitment.millnet.cloud/cgi/api_service.cgi?wsdl', 
+			self::WSDL, 
 			[
 				'trace' => true, 
 				'exception' => false
