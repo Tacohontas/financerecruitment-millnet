@@ -143,7 +143,7 @@ if ( ! class_exists( 'Financerecruitment_Millnet\\Plugin' ) ) :
 				return;
 			}
 
-			GFAddon::register( Gf_Applications_Addon::class );
+			GFAddon::register( Gf_Millnet_Addon::class );
 		}
 
 		/**
