@@ -104,33 +104,53 @@ class Gf_Millnet_Addon extends GFFeedAddOn {
 				'description' => '',
 				'fields'      => [
 					[
+						'name'     => 'fr_millnet_candidate_name',
+						'label'    => esc_html__( 'Candidate name', 'financerecruitment-millnet' ),
+						'type'     => 'text',
+						'class'    => 'medium merge-tag-support',
+					],
+					[
+						'name'     => 'fr_millnet_candidate_date_start',
+						'label'    => esc_html__( 'Date start', 'financerecruitment-millnet' ),
+						'type'     => 'text',
+						'class'    => 'medium merge-tag-support',
+					],
+					[
+						'name'     => 'fr_millnet_candidate_date_end',
+						'label'    => esc_html__( 'Date end', 'financerecruitment-millnet' ),
+						'type'     => 'text',
+						'class'    => 'medium merge-tag-support',
+					],
+					[
 						'name'     => 'fr_millnet_candidate_email',
 						'label'    => esc_html__( 'Candidate Email', 'financerecruitment-millnet' ),
 						'type'     => 'text',
-						'required' => true,
 						'class'    => 'medium merge-tag-support',
 					],
 					[
 						'name'     => 'fr_millnet_user_group',
 						'label'    => esc_html__( 'User group', 'financerecruitment-millnet' ),
 						'type'     => 'text',
-						'required' => true,
 						'class'    => 'medium merge-tag-support',
 					],
 					[
 						'name'     => 'fr_millnet_fraa_frtemp',
 						'label'    => esc_html__( 'FRAA / FRTEMP', 'financerecruitment-millnet' ),
 						'type'     => 'text',
-						'required' => true,
 						'class'    => 'medium merge-tag-support',
 					],
 					[
 						'name'     => 'fr_millnet_salary_type',
 						'label'    => esc_html__( 'Salary type', 'financerecruitment-millnet' ),
 						'type'     => 'text',
-						'required' => true,
 						'class'    => 'medium merge-tag-support',
 						'tooltip'  => esc_html__( 'Type of salary (eg Hourly pay or by invoice)', 'financerecruitment-millnet' ),
+					],
+					[
+						'name'     => 'fr_millnet_candidate_salary',
+						'label'    => esc_html__( 'Candidate Salary (hourly)', 'financerecruitment-millnet' ),
+						'type'     => 'text',
+						'class'    => 'medium merge-tag-support',
 					],
 				],
 
@@ -162,10 +182,10 @@ class Gf_Millnet_Addon extends GFFeedAddOn {
 	 */
 	public function process_feed( $feed, $entry, $form ) {
 		$fields = $feed['meta'];
-		$applicant_name = GFCommon::replace_variables( rgar( $fields, 'gt_career_applicant_name' ), $form, $entry, false, false, false, 'text' );
-		$applicant_email = GFCommon::replace_variables( rgar( $fields, 'gt_career_applicant_email' ), $form, $entry, false, false, false, 'text' );
-		$job_id = GFCommon::replace_variables( rgar( $fields, 'gt_career_job_id' ), $form, $entry, false, false, false, 'text' );
-		$custom_fields = $this->get_generic_map_fields( $feed, 'gt_career_application_fields', $form, $entry );
-		$generic_fields = rgar( $feed, 'meta' ) ? rgars( $feed, 'meta/' . 'gt_career_application_fields' ) : rgar( $feed, 'gt_career_application_fields' );
+		$email = GFCommon::replace_variables( rgar( $fields, 'fr_millnet_candidate_email' ), $form, $entry, false, false, false, 'text' );
+		$user_group = GFCommon::replace_variables( rgar( $fields, 'fr_millnet_user_group' ), $form, $entry, false, false, false, 'text' );
+		$fraa_frtemp = GFCommon::replace_variables( rgar( $fields, 'fr_millnet_fraa_frtemp' ), $form, $entry, false, false, false, 'text' );
+		$salary_type = GFCommon::replace_variables( rgar( $fields, 'fr_millnet_salary_type' ), $form, $entry, false, false, false, 'text' );
+		// Do stuff
 	}
 }
