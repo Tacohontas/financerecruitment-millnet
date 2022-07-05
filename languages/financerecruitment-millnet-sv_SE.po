@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Financerecruitment Millnet Integration\n"
-"POT-Creation-Date: 2021-09-01 10:15+0200\n"
+"POT-Creation-Date: 2022-07-05 13:28+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.1\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
 "esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -24,15 +24,43 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-4: resources\n"
 "X-Poedit-SearchPathExcluded-5: tests\n"
 
-#: financerecruitment-millnet.php:94
-msgid "A plugin boilerplate for creating new WordPress plugins"
-msgstr "En boilerplate för att skapa nya WordPress-plugin"
+#: financerecruitment-millnet.php:110
+msgid "Handles Millnet integration for Financerecruitment"
+msgstr "Hanterar Millnet-integration för Financerecruitment"
 
-#: financerecruitment-millnet.php:95
-msgid "Generation Plugin Boilerplate"
-msgstr "Generation Pluginboilerplate"
+#: financerecruitment-millnet.php:111
+msgid "Financerecruitment Millnet Integration"
+msgstr "Financerecruitment Millnet-integration"
 
-#: inc/Input_Fields.php:131 inc/Input_Fields.php:295
+#: inc/Gf_Millnet_Addon.php:91
+msgid "Millnet feed settings"
+msgstr "Millnet flödesinställningar"
+
+#: inc/Gf_Millnet_Addon.php:95 inc/Gf_Millnet_Addon.php:150
+msgid "Name"
+msgstr "Namn"
+
+#: inc/Gf_Millnet_Addon.php:108
+msgid "Candidate Email"
+msgstr "Kandidatens E-post"
+
+#: inc/Gf_Millnet_Addon.php:115
+msgid "User group"
+msgstr "Användargrupp"
+
+#: inc/Gf_Millnet_Addon.php:122
+msgid "FRAA / FRTEMP"
+msgstr "FRAA / FRTEMP"
+
+#: inc/Gf_Millnet_Addon.php:129
+msgid "Salary type"
+msgstr "Löneart"
+
+#: inc/Gf_Millnet_Addon.php:133
+msgid "Type of salary (eg Hourly pay or by invoice)"
+msgstr "Vilken slags löneart (t.ex Timlön eller fakturering)"
+
+#: inc/Input_Fields.php:131 inc/Input_Fields.php:296
 msgid "Choose an option"
 msgstr "Välj ett alternativ"
 
@@ -40,11 +68,11 @@ msgstr "Välj ett alternativ"
 msgid "Add row"
 msgstr "Lägg till rad"
 
-#: inc/Input_Fields.php:190
+#: inc/Input_Fields.php:191
 msgid "Add media"
 msgstr "Lägg till media"
 
-#: inc/Input_Fields.php:535
+#: inc/Input_Fields.php:536
 msgid "Remove row"
 msgstr "Ta bort rad"
 
@@ -59,6 +87,12 @@ msgid ""
 msgstr ""
 "Fältet kunde inte hittas. Om du försökte gå mot radio och/eller checkboxar "
 "så kan du behöva lägga till “[]” i slutet av “field” i PHP"
+
+#~ msgid "A plugin boilerplate for creating new WordPress plugins"
+#~ msgstr "En boilerplate för att skapa nya WordPress-plugin"
+
+#~ msgid "Generation Plugin Boilerplate"
+#~ msgstr "Generation Pluginboilerplate"
 
 #~ msgid "Help page"
 #~ msgstr "Hjälpsida"
