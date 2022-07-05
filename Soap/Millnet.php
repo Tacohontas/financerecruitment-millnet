@@ -71,4 +71,26 @@ class Cision {
 
 		return ! empty( self::$session_id );
 	}
+
+	/**
+	 * Get users
+	 *
+	 * @param bool $include_disabled
+	 * @return bool
+	 */
+	public function get_users( bool $include_disabled = false ) {
+		$result = self::$client->__soapCall(
+			'getUsers', 
+			[
+				'getUsers' => [
+						'session' => self::$session_id,
+						// Set variable to a string representation of a boolean value ("true" or "false)
+						'includeDisabled' => $include_disabled ? 'true' : 'false',
+					]
+				]
+			);
+			
+		return count( (array) $result ) === 0 ?: $result;
+	}
+
 }
