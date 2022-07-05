@@ -29,6 +29,13 @@
 		</properties>
 	</rule>
 
+	<rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="0"/>
+        </properties>
+    </rule>
+
 	<rule ref="WordPress.Arrays.ArrayIndentation"/>
 
 	<!-- Require wp_safe_redirect -->
