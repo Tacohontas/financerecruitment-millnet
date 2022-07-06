@@ -160,72 +160,20 @@ class Millnet {
 	}
 
 	/**
-	 * Get user by email
+	 * Undocumented function
 	 *
-	 * @param string $email
-	 * @return bool|object
+	 * @param array $user
+	 * @return object
 	 */
-	public function get_user_by_email( string $email ) {
-		$users = $this->get_users();
-
-		if ( ! $users ) {
-			return false;
-		}
-
-		foreach( $users as $user ) {
-			if ( empty( $user->EMail ) ) {
-				continue;
-			}
-
-			if ( $user->EMail === $email ) {
-				return $user;
-			}
-		}
-	}
-
-	public function add_user() {
-		$user = [
-			'name' => 'Generation Testperson',
-			'email' => 'jonathan+test@thegeneration.se',
-			'start_date' => '2022-07-06',
-			'end_date' => '2022-07-06',
-			'hourly_pay' => 1111,
-			'groups' => [
-				300000000000000145,
-				300000000000000082,
-			]
-		];
-
-		$result = self::$client->__soapCall(
+	public function add_user( array $user ) {
+		return self::$client->__soapCall(
 			'addUser', 
 			[
 				'addUser' => [
 						'session' => self::$session_id,
-						'user' => [
-							'UserId' => '253',
-							'FullName' => $user['name'],
-							'UserLogin' => $this->make_username( $user['name'] ),
-							'EMail' => $user['email'],
-							'StartDate' => $user['start_date'],
-							'EndDate' => $user['end_date'],
-							'CostHour' => $user['hourly_pay'],
-							'Groups' => $user['groups'],
-							'Disabled' => 1,
-						],
+						'user' => $user,
 				]
 			]
-			);
-			
-		return $result;
-	}
-
-	/**
-	 * Make username (and return it)
-	 *
-	 * @param string $full_name
-	 * @return string
-	 */
-	public function make_username( string $full_name ) {
-		return str_replace( ' ', '.', strtolower( remove_accents( $full_name ) ) );
+		);
 	}
 }
