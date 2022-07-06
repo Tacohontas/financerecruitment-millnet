@@ -111,4 +111,30 @@ class Millnet_Worker {
 	}
 	}
 
+	/**
+	 * Get user by email
+	 *
+	 * @param string $email
+	 * @param Millnet $client
+	 * @return bool|object
+	 */
+	public function get_user_by_email( string $email, Millnet $client ) {
+		$users = $client->get_users();
+
+		if ( ! $users ) {
+			return false;
+		}
+
+		foreach( $users as $user ) {
+			if ( empty( $user->EMail ) ) {
+				continue;
+			}
+
+			if ( $user->EMail === $email ) {
+				return $user;
+			}
+		}
+	}
+	}
+
 }
