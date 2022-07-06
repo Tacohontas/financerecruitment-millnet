@@ -2,6 +2,7 @@
 
 namespace Financerecruitment_Millnet;
 
+use Financerecruitment_Millnet\Soap\Millnet;
 use Financerecruitment_Millnet\Traits\Singleton;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
