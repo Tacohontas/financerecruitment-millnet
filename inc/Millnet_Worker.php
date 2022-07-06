@@ -24,6 +24,10 @@ class Millnet_Worker {
 	 * @return void
 	 */
 	public function init() {
+		// add_action('init', [$this, 'test']);
+		add_filter( 'gform_admin_pre_render', [ $this, 'handle_form_pre_render' ] );
+	}
+
 		
 	}
 
