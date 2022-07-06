@@ -74,6 +74,41 @@ class Millnet_Worker {
 
 		return $form;
 	}
+
+	/**
+	 * Populate field with group
+	 *
+	 * @param string $group_name
+	 * @param array $groups
+	 * @param object $field
+	 * @return void
+	 */
+	public function populate_field_with_group( string $group_name, array $groups, object &$field) {
+		$group_collection = $this->get_group_collection( $group_name, $groups );
+		// Init arrays and id counter
+		$choices = [];
+		$inputs = [];
+		$id = 0;
+
+		foreach ( $group_collection as $group ) {
+			++$id;
+			$choices[] = [
+				'text'       => $group['GroupName'],
+				'value'      => $group['GroupId'],
+				'isSelected' => false,
+				'price'      => '',
+			];
+			$inputs[] = [
+				'id'    => $field->id . '.' . $id,
+				'label' => $group['GroupName'],
+				'name'  => $group['GroupName'],
+			];
+		}
+		
+		// Populate inputs and choices attributes
+		$field->inputs = $inputs;
+		$field->choices = $choices;
+	}
 	}
 
 }
