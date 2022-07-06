@@ -135,6 +135,35 @@ class Millnet_Worker {
 			}
 		}
 	}
+
+	/**
+	 * Get group collection by defined group name (named by Finance)
+	 *
+	 * @param string $group_name
+	 * @param array $fetched_groups
+	 * @return array
+	 */
+	public function get_group_collection( string $group_name, array $fetched_groups ) {
+		$group_collection = [];
+
+		if ( empty( Millnet::GROUPS[ $group_name ] ) ) {
+			return $group_collection;
+		}
+
+		if ( empty( $fetched_groups ) ) {
+			return $group_collection;
+		}
+
+		foreach( $fetched_groups as $group ) {
+			if ( ! in_array( $group->GroupName, Millnet::GROUPS[ $group_name ], true ) ) {
+				continue;
+			}
+
+			$group_collection[] = (array) $group;
+		}
+
+		return $group_collection;
+	}
 	}
 
 }
