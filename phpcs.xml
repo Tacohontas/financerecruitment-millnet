@@ -30,11 +30,11 @@
 	</rule>
 
 	<rule ref="Generic.Files.LineLength">
-        <properties>
-            <property name="lineLimit" value="120"/>
-            <property name="absoluteLineLimit" value="0"/>
-        </properties>
-    </rule>
+		<properties>
+			<property name="lineLimit" value="120"/>
+			<property name="absoluteLineLimit" value="0"/>
+		</properties>
+	</rule>
 
 	<rule ref="WordPress.Arrays.ArrayIndentation"/>
 
@@ -408,7 +408,7 @@
 
 
 	<!-- Prevent some typical mistakes people make accidentally.
-	     https://github.com/WordPress/WordPress-Coding-Standards/pull/1777 -->
+		 https://github.com/WordPress/WordPress-Coding-Standards/pull/1777 -->
 	<rule ref="WordPress.CodeAnalysis.EscapedNotTranslated"/>
 
 
