@@ -28,6 +28,19 @@ class Millnet_Worker {
 		add_filter( 'gform_admin_pre_render', [ $this, 'handle_form_pre_render' ] );
 	}
 
+	/**
+	 * Handle form pre render in admin view
+	 *
+	 * @param array $form
+	 * @return array
+	 */
+	public function handle_form_pre_render( $form ) {
+		if ( ! empty( $form['cssClass'] ) && strpos( $form['cssClass'], self::FORM_CSS_CLASS ) !== false ) {
+			return $this->populate_fields( $form );
+		}
+
+		return $form;
+	}
 		
 	}
 
