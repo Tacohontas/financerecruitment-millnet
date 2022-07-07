@@ -56,6 +56,13 @@ if ( ! class_exists( 'Financerecruitment_Millnet\\Plugin' ) ) :
 		private $plugin_label;
 
 		/**
+		 * Logger class
+		 *
+		 * @var Logger
+		 */
+		public $logger;
+
+		/**
 		 * gf_millnet_addon class
 		 *
 		 * @var Gf_Millnet_Addon
@@ -160,6 +167,7 @@ if ( ! class_exists( 'Financerecruitment_Millnet\\Plugin' ) ) :
 			$this->i18n = I18n::get_instance();
 			$this->scripts = Scripts::get_instance();
 			$this->millnet_worker = Millnet_Worker::get_instance();
+			$this->logger = Logger::get_instance();
 		}
 
 		/**
