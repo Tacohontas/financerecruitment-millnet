@@ -63,11 +63,11 @@ class Millnet_Worker {
 			}
 
 			if ( strpos( $field->cssClass, 'fr-millnet-fraa-frtemp' ) !== false ) { //phpcs:ignore WordPress.NamingConventions.ValidVariableName
-				$this->populate_field_with_group( 'fraa_frtemp', $groups, $field );
+				$this->map_field_values_with_group( 'fraa_frtemp', $groups, $field ); // TODO: Här ska den sättas baserat på namn
 			}
 
 			if ( strpos( $field->cssClass, 'fr-millnet-salary-type' ) !== false ) { //phpcs:ignore WordPress.NamingConventions.ValidVariableName
-				$this->populate_field_with_group( 'salary_type', $groups, $field );
+				$this->map_field_values_with_group( 'salary_type', $groups, $field );
 			}
 		}
 
@@ -100,6 +100,33 @@ class Millnet_Worker {
 
 		// Populate inputs and choices attributes
 		$field->choices = $choices;
+	}
+
+	/**
+	 * Populate field values with group id
+	 *
+	 * @param string $group_name
+	 * @param array $groups
+	 * @param object $field
+	 * @return void
+	 */
+	public function map_field_values_with_group( string $group_name, array $groups, object &$field ) {
+		$group_collection = $this->get_group_collection( $group_name, $groups );
+		$group_choices = [];
+
+		// Build array with group name and ID's from Millnet
+		foreach ( $group_collection as $group ) {
+			$group_choices[ $group['GroupName'] ] = $group['GroupId'];
+		}
+
+		// Replace group name in field with group value
+		foreach( $field->choices as &$choice ) {
+			if ( empty( $group_choices[ $choice['value'] ] ) ) {
+				continue;
+			}
+
+			$choice['value'] = $group_choices[ $choice['value'] ];
+		}
 	}
 
 	/**
@@ -213,6 +240,8 @@ class Millnet_Worker {
 		}
 
 		$user_data = self::make_user_data( $user, $client );
+		echo "<pre>";
+		var_dump($user_data);
 		// $client->add_user( $user_data );
 	}
 
