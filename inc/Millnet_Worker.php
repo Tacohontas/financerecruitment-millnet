@@ -80,7 +80,7 @@ class Millnet_Worker {
 			'UserLogin' => self::make_username( $user['name'] ),
 			'StartDate' => $user['start_date'],
 			'EndDate'   => $user['end_date'],
-			'CostHour'  => $user['salary'],
+			'CostHour'  => str_replace( ',', '', $user['salary'] ),
 			'Disabled'  => 1,
 		];
 
