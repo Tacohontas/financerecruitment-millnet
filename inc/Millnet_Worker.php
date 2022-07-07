@@ -208,7 +208,7 @@ class Millnet_Worker {
 	 * @param string $full_name
 	 * @return string
 	 */
-	public function make_username( string $full_name ) {
+	public static function make_username( string $full_name ) {
 		return str_replace( ' ', '.', strtolower( remove_accents( $full_name ) ) );
 	}
 
