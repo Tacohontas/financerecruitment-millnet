@@ -181,6 +181,21 @@ class Gf_Millnet_Addon extends GFFeedAddOn {
 	 * @return void
 	 */
 	public function process_feed( $feed, $entry, $form ) {
+		Millnet_Worker::create_or_update_user( 
+			[
+				'name' => $this->get_millnet_field_value( 'fr_millnet_name', $feed, $form, $entry ),
+				'email' => $this->get_millnet_field_value('fr_millnet_email', $feed, $form, $entry ),
+				'start_date' => $this->get_millnet_field_value('fr_millnet_date_start', $feed, $form, $entry ),
+				'end_date' => $this->get_millnet_field_value('fr_millnet_date_end', $feed, $form, $entry ),
+				'salary' => $this->get_millnet_field_value('fr_millnet_salary', $feed, $form, $entry ),
+				'groups' => [
+					$this->get_millnet_field_value('fr_millnet_fraa_frtemp', $feed, $form, $entry ),
+					$this->get_millnet_field_value('fr_millnet_salary_type', $feed, $form, $entry ),
+					$this->get_millnet_field_value('fr_millnet_user_group', $feed, $form, $entry )
+				],
+			]
+		);
+	}
 
 	/**
 	 * Get mapped millnet field value
