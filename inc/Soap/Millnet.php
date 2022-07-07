@@ -83,7 +83,6 @@ class Millnet {
 			[
 				'getUsers' => [
 					'session'         => self::$session_id,
-					// Set variable to a string representation of a boolean value ("true" or "false)
 					'includeDisabled' => $include_disabled,
 				],
 			]
