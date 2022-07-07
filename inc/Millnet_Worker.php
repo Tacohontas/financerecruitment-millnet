@@ -166,6 +166,43 @@ class Millnet_Worker {
 	}
 
 	/**
+	 * Make user data array
+	 *
+	 * @param array $user
+	 * @param Millnet $user
+	 * @return array
+	 */
+	public static function make_user_data( array $user, Millnet $client ) {		
+		$user_data = [
+			'UserLogin' => self::make_username( $user['name'] ),
+			'StartDate' => $user['start_date'],
+			'EndDate' => $user['end_date'],
+			'CostHour' => $user['salary'],
+			'Disabled' => 1,
+		];
+		
+		$existing_user = self::get_user_by_email( $user['email'], $client );
+		
+		if ( $existing_user ) {
+			$user_data['UserId'] = $existing_user['UserId'];
+			$user_data['UserLogin'] = $existing_user['UserLogin'];
+		} else {
+			$user_data['FullName'] = $user['name'];
+			$user_data['EMail'] = $user['email'];
+		}
+		
+		foreach( $user['groups'] as $group_collection ) {
+			foreach( explode( ',', $group_collection ) as $group ) {
+				$groups[] = trim( $group );
+			}
+		}
+		
+		$user_data['Groups'] = $groups;
+
+		return $user_data;
+	}
+
+	/**
 	 * Make username (and return it)
 	 *
 	 * @param string $full_name
