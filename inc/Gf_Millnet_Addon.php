@@ -182,6 +182,8 @@ class Gf_Millnet_Addon extends GFFeedAddOn {
 	 * @return void
 	 */
 	public function process_feed( $feed, $entry, $form ) {
+		gen()->logger->log( 'Start to process feed' );
+
 		if ( ! $feed['meta'] ) {
 			return;
 		}
