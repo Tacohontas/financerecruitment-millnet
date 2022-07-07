@@ -86,6 +86,7 @@ class Millnet_Worker {
 
 		$existing_user = self::get_user_by_email( $user['email'], $client );
 
+		// If user exists - update it (FullName and Email shouldn't be updated)
 		if ( $existing_user ) {
 			$user_data['UserId'] = $existing_user['UserId'];
 			$user_data['UserLogin'] = $existing_user['UserLogin'];
@@ -94,18 +95,10 @@ class Millnet_Worker {
 			$user_data['EMail'] = $user['email'];
 		}
 
-		foreach ( $user['groups'] as $group_collection ) {
-			if ( empty( $group_collection ) ) {
-				continue;
-			}
-
-			foreach ( explode( ',', $group_collection ) as $group ) {
-				$groups[] = trim( $group );
-			}
-		}
-
-		$user_data['Groups'] = $groups;
-
+		$millnet_groups = $client->get_groups();
+		$group_collection = self::get_group_collection( $millnet_groups, $user['groups'] );
+		$user_data['Groups'] = $group_collection;
+		
 		return $user_data;
 	}
 
