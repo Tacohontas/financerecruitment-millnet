@@ -110,10 +110,12 @@ class Millnet_Worker {
 	 * @return void
 	 */
 	public static function create_or_update_user( array $user ) {
+		gen()->logger->log( 'Setting up Millnet Soap Client' );
 		$client = gen()->millnet_soap();
 		$login_success = $client->login();
 
 		if ( ! $login_success ) {
+			gen()->logger->log( 'Millnet login failed' );
 			return;
 		}
 
