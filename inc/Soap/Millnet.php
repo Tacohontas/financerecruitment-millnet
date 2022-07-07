@@ -111,7 +111,7 @@ class Millnet {
 	}
 
 	/**
-	 * Undocumented function
+	 * Add user
 	 *
 	 * @param array $user
 	 * @return object
