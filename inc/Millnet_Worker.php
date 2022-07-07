@@ -183,6 +183,10 @@ class Millnet_Worker {
 		}
 
 		foreach ( $user['groups'] as $group_collection ) {
+			if ( empty( $group_collection ) ) {
+				continue;
+			}
+
 			foreach ( explode( ',', $group_collection ) as $group ) {
 				$groups[] = trim( $group );
 			}
