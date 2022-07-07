@@ -181,6 +181,10 @@ class Gf_Millnet_Addon extends GFFeedAddOn {
 	 * @return void
 	 */
 	public function process_feed( $feed, $entry, $form ) {
+		if ( ! $feed['meta'] ) {
+			return;
+		}
+
 		Millnet_Worker::create_or_update_user( 
 			[
 				'name' => $this->get_millnet_field_value( 'fr_millnet_name', $feed, $form, $entry ),
