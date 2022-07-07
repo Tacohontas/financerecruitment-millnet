@@ -120,7 +120,7 @@ class Millnet_Worker {
 		}
 
 		// Replace group name in field with group value
-		foreach( $field->choices as &$choice ) {
+		foreach ( $field->choices as &$choice ) {
 			if ( empty( $group_choices[ $choice['value'] ] ) ) {
 				continue;
 			}
@@ -240,8 +240,8 @@ class Millnet_Worker {
 		}
 
 		$user_data = self::make_user_data( $user, $client );
-		echo "<pre>";
-		var_dump($user_data);
+		echo '<pre>';
+		var_dump( $user_data );
 		// $client->add_user( $user_data );
 	}
 

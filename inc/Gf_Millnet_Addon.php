@@ -134,10 +134,10 @@ class Gf_Millnet_Addon extends GFFeedAddOn {
 						'class' => 'medium merge-tag-support',
 					],
 					[
-						'name'  => 'fr_millnet_consultant',
-						'label' => esc_html__( 'Recruitment Consultant', 'financerecruitment-millnet' ),
-						'type'  => 'text',
-						'class' => 'medium merge-tag-support',
+						'name'    => 'fr_millnet_consultant',
+						'label'   => esc_html__( 'Recruitment Consultant', 'financerecruitment-millnet' ),
+						'type'    => 'text',
+						'class'   => 'medium merge-tag-support',
 						'tooltip' => esc_html__( 'Field that lists Recruitment Consultants (will set FR AA/FR TEMP based on consultant)', 'financerecruitment-millnet' ),
 					],
 					[
