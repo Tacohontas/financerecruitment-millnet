@@ -87,7 +87,6 @@ class Millnet_Worker {
 		$group_collection = $this->get_group_collection( $group_name, $groups );
 		// Init arrays and id counter
 		$choices = [];
-		$inputs = [];
 		$id = 0;
 
 		foreach ( $group_collection as $group ) {
@@ -98,15 +97,9 @@ class Millnet_Worker {
 				'isSelected' => false,
 				'price'      => '',
 			];
-			$inputs[] = [
-				'id'    => $field->id . '.' . $id,
-				'label' => $group['GroupName'],
-				'name'  => $group['GroupName'],
-			];
 		}
 		
 		// Populate inputs and choices attributes
-		$field->inputs = $inputs;
 		$field->choices = $choices;
 	}
 	}
