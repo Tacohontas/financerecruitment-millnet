@@ -2,6 +2,7 @@
 
 namespace Financerecruitment_Millnet;
 
+use Exception;
 use Financerecruitment_Millnet\Soap\Millnet;
 use Financerecruitment_Millnet\Traits\Singleton;
 
