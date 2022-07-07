@@ -134,10 +134,11 @@ class Gf_Millnet_Addon extends GFFeedAddOn {
 						'class' => 'medium merge-tag-support',
 					],
 					[
-						'name'  => 'fr_millnet_fraa_frtemp',
-						'label' => esc_html__( 'FRAA / FRTEMP', 'financerecruitment-millnet' ),
+						'name'  => 'fr_millnet_consultant',
+						'label' => esc_html__( 'Recruitment Consultant', 'financerecruitment-millnet' ),
 						'type'  => 'text',
 						'class' => 'medium merge-tag-support',
+						'tooltip' => esc_html__( 'Field that lists Recruitment Consultants (will set FR AA/FR TEMP based on consultant)', 'financerecruitment-millnet' ),
 					],
 					[
 						'name'    => 'fr_millnet_salary_type',
@@ -193,7 +194,7 @@ class Gf_Millnet_Addon extends GFFeedAddOn {
 				'end_date'   => $this->get_millnet_field_value( 'fr_millnet_date_end', $feed, $form, $entry ),
 				'salary'     => $this->get_millnet_field_value( 'fr_millnet_salary', $feed, $form, $entry ),
 				'groups'     => [
-					$this->get_millnet_field_value( 'fr_millnet_fraa_frtemp', $feed, $form, $entry ),
+					$this->get_millnet_field_value( 'fr_millnet_consultant', $feed, $form, $entry ),
 					$this->get_millnet_field_value( 'fr_millnet_salary_type', $feed, $form, $entry ),
 					$this->get_millnet_field_value( 'fr_millnet_user_group', $feed, $form, $entry ),
 				],
