@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 class Millnet {
 	use Singleton;
-	
+
 	/**
 	 * WSDL
 	 */
@@ -22,7 +22,7 @@ class Millnet {
 	 * User types
 	 */
 	const GROUPS = [
-		'user_types' => [
+		'user_types'  => [
 			'Alla anställda',
 			'Alla användare',
 		],
@@ -32,7 +32,7 @@ class Millnet {
 		],
 		'salary_type' => [
 			'LÖN: Timlön',
-		]
+		],
 	];
 
 	/**
@@ -56,10 +56,10 @@ class Millnet {
 	 */
 	protected function __construct() {
 		self::$client = new SoapClient(
-			self::WSDL, 
+			self::WSDL,
 			[
-				'trace' => true, 
-				'exception' => false
+				'trace'     => true,
+				'exception' => false,
 			]
 		);
 	}
@@ -71,15 +71,15 @@ class Millnet {
 	 */
 	public function login() {
 		$result = self::$client->__soapCall(
-			'login', 
+			'login',
 			[
 				'loginRequest' => [
-						'login' => 'api', // TODO: Sätt som konstant eller define:a från wp-config
-						'password' => 'troHi39n_$', // TODO: Sätt som konstant eller define:a från wp-config
-						'instanceid' => '000815.1' // TODO: Sätt som konstant eller define:a från wp-config
-					]
-				]
-			);
+					'login'      => 'api', // TODO: Sätt som konstant eller define:a från wp-config
+					'password'   => 'troHi39n_$', // TODO: Sätt som konstant eller define:a från wp-config
+					'instanceid' => '000815.1', // TODO: Sätt som konstant eller define:a från wp-config
+				],
+			]
+		);
 
 		if ( ! empty( $result->session ) ) {
 			self::$session_id = $result->session;
@@ -96,16 +96,16 @@ class Millnet {
 	 */
 	public function get_users( bool $include_disabled = false ) {
 		$result = self::$client->__soapCall(
-			'getUsers', 
+			'getUsers',
 			[
 				'getUsers' => [
-						'session' => self::$session_id,
-						// Set variable to a string representation of a boolean value ("true" or "false)
-						'includeDisabled' => $include_disabled,
-					]
-				]
-			);
-			
+					'session'         => self::$session_id,
+					// Set variable to a string representation of a boolean value ("true" or "false)
+					'includeDisabled' => $include_disabled,
+				],
+			]
+		);
+
 		return ! empty( $result->users ) ? $result->users : false;
 	}
 
@@ -116,14 +116,14 @@ class Millnet {
 	 */
 	public function get_groups() {
 		$result = self::$client->__soapCall(
-			'getGroups', 
+			'getGroups',
 			[
 				'getGroups' => [
-						'session' => self::$session_id,
-					]
-				]
-			);
-			
+					'session' => self::$session_id,
+				],
+			]
+		);
+
 		return ! empty( $result->groups ) ? (array) $result->groups : [];
 	}
 
@@ -139,7 +139,7 @@ class Millnet {
 		if ( empty( self::GROUPS[ $group_name ] ) ) {
 			return $group_collection;
 		}
-		
+
 		if ( empty( $fetched_groups ) ) {
 			$fetched_groups = $this->get_groups();
 		}
@@ -148,7 +148,7 @@ class Millnet {
 			return $group_collection;
 		}
 
-		foreach( $fetched_groups as $group ) {
+		foreach ( $fetched_groups as $group ) {
 			if ( ! in_array( $group->GroupName, self::GROUPS[ $group_name ], true ) ) {
 				continue;
 			}
@@ -167,12 +167,12 @@ class Millnet {
 	 */
 	public function add_user( array $user ) {
 		return self::$client->__soapCall(
-			'addUser', 
+			'addUser',
 			[
 				'addUser' => [
-						'session' => self::$session_id,
-						'user' => $user,
-				]
+					'session' => self::$session_id,
+					'user'    => $user,
+				],
 			]
 		);
 	}

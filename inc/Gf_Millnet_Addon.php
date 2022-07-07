@@ -104,53 +104,53 @@ class Gf_Millnet_Addon extends GFFeedAddOn {
 				'description' => '',
 				'fields'      => [
 					[
-						'name'     => 'fr_millnet_name',
-						'label'    => esc_html__( 'Candidate name', 'financerecruitment-millnet' ),
-						'type'     => 'text',
-						'class'    => 'medium merge-tag-support',
+						'name'  => 'fr_millnet_name',
+						'label' => esc_html__( 'Candidate name', 'financerecruitment-millnet' ),
+						'type'  => 'text',
+						'class' => 'medium merge-tag-support',
 					],
 					[
-						'name'     => 'fr_millnet_date_start',
-						'label'    => esc_html__( 'Date start', 'financerecruitment-millnet' ),
-						'type'     => 'text',
-						'class'    => 'medium merge-tag-support',
+						'name'  => 'fr_millnet_date_start',
+						'label' => esc_html__( 'Date start', 'financerecruitment-millnet' ),
+						'type'  => 'text',
+						'class' => 'medium merge-tag-support',
 					],
 					[
-						'name'     => 'fr_millnet_date_end',
-						'label'    => esc_html__( 'Date end', 'financerecruitment-millnet' ),
-						'type'     => 'text',
-						'class'    => 'medium merge-tag-support',
+						'name'  => 'fr_millnet_date_end',
+						'label' => esc_html__( 'Date end', 'financerecruitment-millnet' ),
+						'type'  => 'text',
+						'class' => 'medium merge-tag-support',
 					],
 					[
-						'name'     => 'fr_millnet_email',
-						'label'    => esc_html__( 'Candidate Email', 'financerecruitment-millnet' ),
-						'type'     => 'text',
-						'class'    => 'medium merge-tag-support',
+						'name'  => 'fr_millnet_email',
+						'label' => esc_html__( 'Candidate Email', 'financerecruitment-millnet' ),
+						'type'  => 'text',
+						'class' => 'medium merge-tag-support',
 					],
 					[
-						'name'     => 'fr_millnet_user_group',
-						'label'    => esc_html__( 'User group', 'financerecruitment-millnet' ),
-						'type'     => 'text',
-						'class'    => 'medium merge-tag-support',
+						'name'  => 'fr_millnet_user_group',
+						'label' => esc_html__( 'User group', 'financerecruitment-millnet' ),
+						'type'  => 'text',
+						'class' => 'medium merge-tag-support',
 					],
 					[
-						'name'     => 'fr_millnet_fraa_frtemp',
-						'label'    => esc_html__( 'FRAA / FRTEMP', 'financerecruitment-millnet' ),
-						'type'     => 'text',
-						'class'    => 'medium merge-tag-support',
+						'name'  => 'fr_millnet_fraa_frtemp',
+						'label' => esc_html__( 'FRAA / FRTEMP', 'financerecruitment-millnet' ),
+						'type'  => 'text',
+						'class' => 'medium merge-tag-support',
 					],
 					[
-						'name'     => 'fr_millnet_salary_type',
-						'label'    => esc_html__( 'Salary type', 'financerecruitment-millnet' ),
-						'type'     => 'text',
-						'class'    => 'medium merge-tag-support',
-						'tooltip'  => esc_html__( 'Type of salary (eg Hourly pay or by invoice)', 'financerecruitment-millnet' ),
+						'name'    => 'fr_millnet_salary_type',
+						'label'   => esc_html__( 'Salary type', 'financerecruitment-millnet' ),
+						'type'    => 'text',
+						'class'   => 'medium merge-tag-support',
+						'tooltip' => esc_html__( 'Type of salary (eg Hourly pay or by invoice)', 'financerecruitment-millnet' ),
 					],
 					[
-						'name'     => 'fr_millnet_salary',
-						'label'    => esc_html__( 'Candidate Salary (hourly)', 'financerecruitment-millnet' ),
-						'type'     => 'text',
-						'class'    => 'medium merge-tag-support',
+						'name'  => 'fr_millnet_salary',
+						'label' => esc_html__( 'Candidate Salary (hourly)', 'financerecruitment-millnet' ),
+						'type'  => 'text',
+						'class' => 'medium merge-tag-support',
 					],
 				],
 
@@ -185,17 +185,17 @@ class Gf_Millnet_Addon extends GFFeedAddOn {
 			return;
 		}
 
-		Millnet_Worker::create_or_update_user( 
+		Millnet_Worker::create_or_update_user(
 			[
-				'name' => $this->get_millnet_field_value( 'fr_millnet_name', $feed, $form, $entry ),
-				'email' => $this->get_millnet_field_value('fr_millnet_email', $feed, $form, $entry ),
-				'start_date' => $this->get_millnet_field_value('fr_millnet_date_start', $feed, $form, $entry ),
-				'end_date' => $this->get_millnet_field_value('fr_millnet_date_end', $feed, $form, $entry ),
-				'salary' => $this->get_millnet_field_value('fr_millnet_salary', $feed, $form, $entry ),
-				'groups' => [
-					$this->get_millnet_field_value('fr_millnet_fraa_frtemp', $feed, $form, $entry ),
-					$this->get_millnet_field_value('fr_millnet_salary_type', $feed, $form, $entry ),
-					$this->get_millnet_field_value('fr_millnet_user_group', $feed, $form, $entry )
+				'name'       => $this->get_millnet_field_value( 'fr_millnet_name', $feed, $form, $entry ),
+				'email'      => $this->get_millnet_field_value( 'fr_millnet_email', $feed, $form, $entry ),
+				'start_date' => $this->get_millnet_field_value( 'fr_millnet_date_start', $feed, $form, $entry ),
+				'end_date'   => $this->get_millnet_field_value( 'fr_millnet_date_end', $feed, $form, $entry ),
+				'salary'     => $this->get_millnet_field_value( 'fr_millnet_salary', $feed, $form, $entry ),
+				'groups'     => [
+					$this->get_millnet_field_value( 'fr_millnet_fraa_frtemp', $feed, $form, $entry ),
+					$this->get_millnet_field_value( 'fr_millnet_salary_type', $feed, $form, $entry ),
+					$this->get_millnet_field_value( 'fr_millnet_user_group', $feed, $form, $entry ),
 				],
 			]
 		);

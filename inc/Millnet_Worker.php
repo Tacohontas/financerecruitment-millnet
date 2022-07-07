@@ -17,14 +17,13 @@ class Millnet_Worker {
 	 * Form CSS class
 	 */
 	const FORM_CSS_CLASS = 'financerecruitment-millnet-form';
-	
+
 	/**
 	 * Init function
 	 *
 	 * @return void
 	 */
 	public function init() {
-		// add_action('init', [$this, 'test']);
 		add_filter( 'gform_admin_pre_render', [ $this, 'handle_form_pre_render' ] );
 	}
 
@@ -83,7 +82,7 @@ class Millnet_Worker {
 	 * @param object $field
 	 * @return void
 	 */
-	public function populate_field_with_group( string $group_name, array $groups, object &$field) {
+	public function populate_field_with_group( string $group_name, array $groups, object &$field ) {
 		$group_collection = $this->get_group_collection( $group_name, $groups );
 		// Init arrays and id counter
 		$choices = [];
@@ -98,10 +97,9 @@ class Millnet_Worker {
 				'price'      => '',
 			];
 		}
-		
+
 		// Populate inputs and choices attributes
 		$field->choices = $choices;
-	}
 	}
 
 	/**
@@ -112,13 +110,13 @@ class Millnet_Worker {
 	 * @return bool|object
 	 */
 	public static function get_user_by_email( string $email, Millnet $client ) {
-		$users = $client->get_users(true);
+		$users = $client->get_users( true );
 
 		if ( ! $users ) {
 			return false;
 		}
 
-		foreach( $users as $user ) {
+		foreach ( $users as $user ) {
 			if ( empty( $user->EMail ) ) {
 				continue;
 			}
@@ -147,7 +145,7 @@ class Millnet_Worker {
 			return $group_collection;
 		}
 
-		foreach( $fetched_groups as $group ) {
+		foreach ( $fetched_groups as $group ) {
 			if ( ! in_array( $group->GroupName, Millnet::GROUPS[ $group_name ], true ) ) {
 				continue;
 			}
@@ -165,17 +163,17 @@ class Millnet_Worker {
 	 * @param Millnet $user
 	 * @return array
 	 */
-	public static function make_user_data( array $user, Millnet $client ) {		
+	public static function make_user_data( array $user, Millnet $client ) {
 		$user_data = [
 			'UserLogin' => self::make_username( $user['name'] ),
 			'StartDate' => $user['start_date'],
-			'EndDate' => $user['end_date'],
-			'CostHour' => $user['salary'],
-			'Disabled' => 1,
+			'EndDate'   => $user['end_date'],
+			'CostHour'  => $user['salary'],
+			'Disabled'  => 1,
 		];
-		
+
 		$existing_user = self::get_user_by_email( $user['email'], $client );
-		
+
 		if ( $existing_user ) {
 			$user_data['UserId'] = $existing_user['UserId'];
 			$user_data['UserLogin'] = $existing_user['UserLogin'];
@@ -183,20 +181,20 @@ class Millnet_Worker {
 			$user_data['FullName'] = $user['name'];
 			$user_data['EMail'] = $user['email'];
 		}
-		
-		foreach( $user['groups'] as $group_collection ) {
-			foreach( explode( ',', $group_collection ) as $group ) {
+
+		foreach ( $user['groups'] as $group_collection ) {
+			foreach ( explode( ',', $group_collection ) as $group ) {
 				$groups[] = trim( $group );
 			}
 		}
-		
+
 		$user_data['Groups'] = $groups;
 
 		return $user_data;
 	}
 
 	/**
-	 * Create or update user 
+	 * Create or update user
 	 * - User will get updated if array has "UserID" property
 	 *
 	 * @param array $user
@@ -205,7 +203,7 @@ class Millnet_Worker {
 	public static function create_or_update_user( array $user ) {
 		$client = gen()->millnet_soap();
 		$login_success = $client->login();
-		
+
 		if ( ! $login_success ) {
 			return;
 		}
