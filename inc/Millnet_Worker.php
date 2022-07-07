@@ -56,7 +56,7 @@ class Millnet_Worker {
 		if ( empty( $fetched_groups ) ) {
 			return $group_collection;
 		}
-		
+
 		foreach ( $fetched_groups as $group ) {
 			if ( ! in_array( $group->GroupName, $groups_from_form, true ) ) { //phpcs:ignore WordPress.NamingConventions.ValidVariableName
 				continue;
@@ -98,7 +98,7 @@ class Millnet_Worker {
 		$millnet_groups = $client->get_groups();
 		$group_collection = self::get_group_collection( $millnet_groups, $user['groups'] );
 		$user_data['Groups'] = $group_collection;
-		
+
 		return $user_data;
 	}
 
