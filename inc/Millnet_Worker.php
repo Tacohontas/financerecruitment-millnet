@@ -203,6 +203,25 @@ class Millnet_Worker {
 	}
 
 	/**
+	 * Create or update user 
+	 * - User will get updated if array has "UserID" property
+	 *
+	 * @param array $user
+	 * @return void
+	 */
+	public static function create_or_update_user( array $user ) {
+		$client = gen()->millnet_soap();
+		$login_success = $client->login();
+		
+		if ( ! $login_success ) {
+			return;
+		}
+
+		$user_data = self::make_user_data( $user, $client );
+		// $client->add_user( $user_data );
+	}
+
+	/**
 	 * Make username (and return it)
 	 *
 	 * @param string $full_name
