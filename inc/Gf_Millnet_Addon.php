@@ -104,25 +104,25 @@ class Gf_Millnet_Addon extends GFFeedAddOn {
 				'description' => '',
 				'fields'      => [
 					[
-						'name'     => 'fr_millnet_candidate_name',
+						'name'     => 'fr_millnet_name',
 						'label'    => esc_html__( 'Candidate name', 'financerecruitment-millnet' ),
 						'type'     => 'text',
 						'class'    => 'medium merge-tag-support',
 					],
 					[
-						'name'     => 'fr_millnet_candidate_date_start',
+						'name'     => 'fr_millnet_date_start',
 						'label'    => esc_html__( 'Date start', 'financerecruitment-millnet' ),
 						'type'     => 'text',
 						'class'    => 'medium merge-tag-support',
 					],
 					[
-						'name'     => 'fr_millnet_candidate_date_end',
+						'name'     => 'fr_millnet_date_end',
 						'label'    => esc_html__( 'Date end', 'financerecruitment-millnet' ),
 						'type'     => 'text',
 						'class'    => 'medium merge-tag-support',
 					],
 					[
-						'name'     => 'fr_millnet_candidate_email',
+						'name'     => 'fr_millnet_email',
 						'label'    => esc_html__( 'Candidate Email', 'financerecruitment-millnet' ),
 						'type'     => 'text',
 						'class'    => 'medium merge-tag-support',
@@ -147,7 +147,7 @@ class Gf_Millnet_Addon extends GFFeedAddOn {
 						'tooltip'  => esc_html__( 'Type of salary (eg Hourly pay or by invoice)', 'financerecruitment-millnet' ),
 					],
 					[
-						'name'     => 'fr_millnet_candidate_salary',
+						'name'     => 'fr_millnet_salary',
 						'label'    => esc_html__( 'Candidate Salary (hourly)', 'financerecruitment-millnet' ),
 						'type'     => 'text',
 						'class'    => 'medium merge-tag-support',
