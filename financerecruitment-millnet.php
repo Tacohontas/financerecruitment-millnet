@@ -2,6 +2,8 @@
 
 namespace Financerecruitment_Millnet;
 
+use Financerecruitment_Millnet\Soap\Millnet;
+
 use GFAddOn;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -68,6 +70,13 @@ if ( ! class_exists( 'Financerecruitment_Millnet\\Plugin' ) ) :
 		public $millnet_worker;
 
 		/**
+		 * millnet_worker class
+		 *
+		 * @var Soap\Millnet
+		 */
+		public $millnet;
+
+		/**
 		 * Translation class
 		 *
 		 * @var I18n
@@ -80,6 +89,13 @@ if ( ! class_exists( 'Financerecruitment_Millnet\\Plugin' ) ) :
 		 * @var Scripts
 		 */
 		public $scripts;
+
+		/**
+		 * Millnet Soap Instance
+		 *
+		 * @var Soap\Millnet
+		 */
+		private $millnet_soap_instance = null;
 
 		/**
 		 * The single instance of the class.
@@ -98,6 +114,19 @@ if ( ! class_exists( 'Financerecruitment_Millnet\\Plugin' ) ) :
 				static::$instance = new static();
 			}
 			return static::$instance;
+		}
+		
+		/**
+		 * Get a singleton instance of the Millnet SOAP
+		 *
+		 * @return Soap\Millnet
+		 */
+		public function millnet_soap() {
+			if ( $this->millnet_soap_instance === null ) {
+				$this->millnet_soap_instance = Millnet::get_instance();
+			}
+
+			return $this->millnet_soap_instance;
 		}
 
 		/**
