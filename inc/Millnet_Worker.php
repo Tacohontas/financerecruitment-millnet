@@ -118,7 +118,19 @@ class Millnet_Worker {
 		}
 
 		$user_data = self::make_user_data( $user, $client );
-		// $client->add_user( $user_data );
+
+		try {
+			$user_added = $client->add_user( $user_data );
+			$log_message = 'User added (or updated) in Millnet';
+
+			if ( ! empty( $user_added->UserId ) ) {
+				$log_message .= ': ' . $user_added->UserId;
+			}
+
+			gen()->logger->log( $log_message );
+		} catch ( Exception $e ) {
+			gen()->logger->log( 'addUser failed. Caught exception:' . $e->getMessage() );
+		}
 	}
 
 	/**
