@@ -183,7 +183,6 @@ if ( ! class_exists( 'Financerecruitment_Millnet\\Plugin' ) ) :
 		public function run() {
 			$this->i18n->init();
 			$this->scripts->init();
-			$this->millnet_worker->init();
 		}
 	}
 
