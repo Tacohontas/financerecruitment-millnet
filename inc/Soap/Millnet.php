@@ -128,38 +128,6 @@ class Millnet {
 	}
 
 	/**
-	 * Get group collection by defined group name (named by Finance)
-	 *
-	 * @param array $fetched_groups
-	 * @return array
-	 */
-	public function get_group_collection( string $group_name, array $fetched_groups = [] ) {
-		$group_collection = [];
-
-		if ( empty( self::GROUPS[ $group_name ] ) ) {
-			return $group_collection;
-		}
-
-		if ( empty( $fetched_groups ) ) {
-			$fetched_groups = $this->get_groups();
-		}
-
-		if ( empty( $fetched_groups ) ) {
-			return $group_collection;
-		}
-
-		foreach ( $fetched_groups as $group ) {
-			if ( ! in_array( $group->GroupName, self::GROUPS[ $group_name ], true ) ) { //phpcs:ignore WordPress.NamingConventions.ValidVariableName
-				continue;
-			}
-
-			$group_collection[] = (array) $group;
-		}
-
-		return $group_collection;
-	}
-
-	/**
 	 * Undocumented function
 	 *
 	 * @param array $user
