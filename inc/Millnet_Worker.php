@@ -118,8 +118,8 @@ class Millnet_Worker {
 	 * @param Millnet $client
 	 * @return bool|object
 	 */
-	public function get_user_by_email( string $email, Millnet $client ) {
-		$users = $client->get_users();
+	public static function get_user_by_email( string $email, Millnet $client ) {
+		$users = $client->get_users(true);
 
 		if ( ! $users ) {
 			return false;
