@@ -181,11 +181,17 @@ class Gf_Millnet_Addon extends GFFeedAddOn {
 	 * @return void
 	 */
 	public function process_feed( $feed, $entry, $form ) {
-		$fields = $feed['meta'];
-		$email = GFCommon::replace_variables( rgar( $fields, 'fr_millnet_candidate_email' ), $form, $entry, false, false, false, 'text' );
-		$user_group = GFCommon::replace_variables( rgar( $fields, 'fr_millnet_user_group' ), $form, $entry, false, false, false, 'text' );
-		$fraa_frtemp = GFCommon::replace_variables( rgar( $fields, 'fr_millnet_fraa_frtemp' ), $form, $entry, false, false, false, 'text' );
-		$salary_type = GFCommon::replace_variables( rgar( $fields, 'fr_millnet_salary_type' ), $form, $entry, false, false, false, 'text' );
-		// Do stuff
+
+	/**
+	 * Get mapped millnet field value
+	 *
+	 * @param string $prop
+	 * @param array $feed
+	 * @param array $form
+	 * @param array $entry
+	 * @return string
+	 */
+	public function get_millnet_field_value( $prop, $feed, $form, $entry ) {
+		return GFCommon::replace_variables( rgar( $feed['meta'], $prop ), $form, $entry, false, false, false, 'number' );
 	}
 }
