@@ -131,7 +131,7 @@ class Millnet_Worker {
 			}
 
 			if ( $user->EMail === $email ) {
-				return $user;
+				return (array) $user;
 			}
 		}
 	}
