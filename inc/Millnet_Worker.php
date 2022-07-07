@@ -58,15 +58,15 @@ class Millnet_Worker {
 		$groups = $client->get_groups();
 
 		foreach ( $form['fields'] as &$field ) {
-			if ( strpos( $field->cssClass, 'fr-millnet-user-group' ) !== false ) {
+			if ( strpos( $field->cssClass, 'fr-millnet-user-group' ) !== false ) { //phpcs:ignore WordPress.NamingConventions.ValidVariableName
 				$this->populate_field_with_group( 'user_types', $groups, $field );
 			}
 
-			if ( strpos( $field->cssClass, 'fr-millnet-fraa-frtemp' ) !== false ) {
+			if ( strpos( $field->cssClass, 'fr-millnet-fraa-frtemp' ) !== false ) { //phpcs:ignore WordPress.NamingConventions.ValidVariableName
 				$this->populate_field_with_group( 'fraa_frtemp', $groups, $field );
 			}
 
-			if ( strpos( $field->cssClass, 'fr-millnet-salary-type' ) !== false ) {
+			if ( strpos( $field->cssClass, 'fr-millnet-salary-type' ) !== false ) { //phpcs:ignore WordPress.NamingConventions.ValidVariableName
 				$this->populate_field_with_group( 'salary_type', $groups, $field );
 			}
 		}
@@ -117,11 +117,11 @@ class Millnet_Worker {
 		}
 
 		foreach ( $users as $user ) {
-			if ( empty( $user->EMail ) ) {
+			if ( empty( $user->EMail ) ) { //phpcs:ignore WordPress.NamingConventions.ValidVariableName
 				continue;
 			}
 
-			if ( $user->EMail === $email ) {
+			if ( $user->EMail === $email ) { //phpcs:ignore WordPress.NamingConventions.ValidVariableName
 				return (array) $user;
 			}
 		}
@@ -146,7 +146,7 @@ class Millnet_Worker {
 		}
 
 		foreach ( $fetched_groups as $group ) {
-			if ( ! in_array( $group->GroupName, Millnet::GROUPS[ $group_name ], true ) ) {
+			if ( ! in_array( $group->GroupName, Millnet::GROUPS[ $group_name ], true ) ) { //phpcs:ignore WordPress.NamingConventions.ValidVariableName
 				continue;
 			}
 

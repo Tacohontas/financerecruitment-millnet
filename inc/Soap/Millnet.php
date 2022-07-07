@@ -149,7 +149,7 @@ class Millnet {
 		}
 
 		foreach ( $fetched_groups as $group ) {
-			if ( ! in_array( $group->GroupName, self::GROUPS[ $group_name ], true ) ) {
+			if ( ! in_array( $group->GroupName, self::GROUPS[ $group_name ], true ) ) { //phpcs:ignore WordPress.NamingConventions.ValidVariableName
 				continue;
 			}
 
