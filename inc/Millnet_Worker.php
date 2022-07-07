@@ -118,8 +118,6 @@ class Millnet_Worker {
 		}
 
 		$user_data = self::make_user_data( $user, $client );
-		echo '<pre>';
-		var_dump( $user_data );
 		// $client->add_user( $user_data );
 	}
 
