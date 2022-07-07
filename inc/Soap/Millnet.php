@@ -19,23 +19,6 @@ class Millnet {
 	const WSDL = 'https://financerecruitment.millnet.cloud/cgi/api_service.cgi?wsdl';
 
 	/**
-	 * User types
-	 */
-	const GROUPS = [
-		'user_types'  => [
-			'Alla anställda',
-			'Alla användare',
-		],
-		'fraa_frtemp' => [
-			'FR AA',
-			'FR Temp',
-		],
-		'salary_type' => [
-			'LÖN: Timlön',
-		],
-	];
-
-	/**
 	 * Client object
 	 *
 	 * @var object
