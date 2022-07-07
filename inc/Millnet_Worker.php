@@ -157,27 +157,23 @@ class Millnet_Worker {
 	/**
 	 * Get group collection by defined group name (named by Finance)
 	 *
-	 * @param string $group_name
 	 * @param array $fetched_groups
+	 * @param array $groups_from_form
 	 * @return array
 	 */
-	public function get_group_collection( string $group_name, array $fetched_groups ) {
+	public static function get_group_collection( array $fetched_groups, array $groups_from_form ) {
 		$group_collection = [];
-
-		if ( empty( Millnet::GROUPS[ $group_name ] ) ) {
-			return $group_collection;
-		}
 
 		if ( empty( $fetched_groups ) ) {
 			return $group_collection;
 		}
-
+		
 		foreach ( $fetched_groups as $group ) {
-			if ( ! in_array( $group->GroupName, Millnet::GROUPS[ $group_name ], true ) ) { //phpcs:ignore WordPress.NamingConventions.ValidVariableName
+			if ( ! in_array( $group->GroupName, $groups_from_form, true ) ) { //phpcs:ignore WordPress.NamingConventions.ValidVariableName
 				continue;
 			}
 
-			$group_collection[] = (array) $group;
+			$group_collection[] = $group->GroupId; //phpcs:ignore WordPress.NamingConventions.ValidVariableName
 		}
 
 		return $group_collection;
