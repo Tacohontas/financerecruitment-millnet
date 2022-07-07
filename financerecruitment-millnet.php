@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * Plugin Name: Financerecruitment Millnet Integration
  * Plugin URI: https://thegeneration.se/
  * Description: Handles Millnet integration for Financerecruitment
- * Version: 1.0.0 
+ * Version: 1.0.0
  * Author: The Generation AB
  * Author URI: https://thegeneration.se
  * Text Domain: financerecruitment-millnet
@@ -115,7 +115,7 @@ if ( ! class_exists( 'Financerecruitment_Millnet\\Plugin' ) ) :
 			}
 			return static::$instance;
 		}
-		
+
 		/**
 		 * Get a singleton instance of the Millnet SOAP
 		 *
