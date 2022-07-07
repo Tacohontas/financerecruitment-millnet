@@ -82,7 +82,7 @@ class Millnet_Worker {
 			'StartDate' => $user['start_date'],
 			'EndDate'   => $user['end_date'],
 			'CostHour'  => str_replace( ',', '', $user['salary'] ),
-			'Disabled'  => 1,
+			'Disabled'  => 1, // TODO: Ändra till 0 vid live
 		];
 
 		$existing_user = self::get_user_by_email( $user['email'], $client );
