@@ -145,5 +145,4 @@ class Millnet_Worker {
 	public static function make_username( string $full_name ) {
 		return str_replace( ' ', '.', strtolower( remove_accents( $full_name ) ) );
 	}
-
 }
