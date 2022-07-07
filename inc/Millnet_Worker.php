@@ -126,8 +126,8 @@ class Millnet_Worker {
 			$user_added = $client->add_user( $user_data );
 			$log_message = 'User added (or updated) in Millnet';
 
-			if ( ! empty( $user_added->UserId ) ) {
-				$log_message .= ': ' . $user_added->UserId;
+			if ( ! empty( $user_added->UserId ) ) { //phpcs:ignore WordPress.NamingConventions.ValidVariableName
+				$log_message .= ': ' . $user_added->UserId; //phpcs:ignore WordPress.NamingConventions.ValidVariableName
 			}
 
 			gen()->logger->log( $log_message );
